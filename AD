@@ -79,7 +79,7 @@ DiscordIcon.Parent = ContentFrame
 DiscordIcon.Size = UDim2.new(0, 60, 0, 60)
 DiscordIcon.Position = UDim2.new(0.5, -30, 0.15, 0)
 DiscordIcon.BackgroundTransparency = 1
-DiscordIcon.Image = "rbxassetid://7733658504"
+DiscordIcon.Image = "rbxassetid://93075516869420"
 DiscordIcon.ImageColor3 = Color3.fromRGB(114, 137, 218)
 
 DiscordLabel.Name = "DiscordLabel"
@@ -103,7 +103,7 @@ CopyButton.Name = "CopyButton"
 CopyButton.Parent = ButtonsFrame
 CopyButton.Size = UDim2.new(0.45, 0, 1, 0)
 CopyButton.Position = UDim2.new(0.05, 0, 0, 0)
-CopyButton.BackgroundColor3 = Color3.fromRGB(114, 137, 218) -- Discord blue
+CopyButton.BackgroundColor3 = Color3.fromRGB(114, 137, 218)
 CopyButton.BorderSizePixel = 0
 CopyButton.Font = Enum.Font.GothamSemibold
 CopyButton.Text = "Copy Discord Link"
