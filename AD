@@ -1,0 +1,239 @@
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
+-- GUI Creation
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local TopBar = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("ImageButton")
+local ContentFrame = Instance.new("Frame")
+local DiscordLabel = Instance.new("TextLabel")
+local DiscordIcon = Instance.new("ImageLabel")
+local CopyButton = Instance.new("TextButton")
+local ButtonsFrame = Instance.new("Frame")
+local ExitButton = Instance.new("TextButton")
+local WaitButton = Instance.new("TextButton")
+local CornerRadius = Instance.new("UICorner")
+local TopBarCorner = Instance.new("UICorner")
+local ContentCorner = Instance.new("UICorner")
+local CopyButtonCorner = Instance.new("UICorner")
+local ExitButtonCorner = Instance.new("UICorner")
+local WaitButtonCorner = Instance.new("UICorner")
+
+-- Properties
+ScreenGui.Name = "Lurnai AD!"
+ScreenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.Size = UDim2.new(0, 400, 0, 250)
+MainFrame.Position = UDim2.new(0.5, -200, 0.5, -125)
+MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+CornerRadius.Parent = MainFrame
+CornerRadius.CornerRadius = UDim.new(0, 8)
+
+TopBar.Name = "TopBar"
+TopBar.Parent = MainFrame
+TopBar.Size = UDim2.new(1, 0, 0, 40)
+TopBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TopBar.BorderSizePixel = 0
+TopBarCorner.Parent = TopBar
+TopBarCorner.CornerRadius = UDim.new(0, 8)
+
+Title.Name = "Title"
+Title.Parent = TopBar
+Title.Size = UDim2.new(1, -40, 1, 0)
+Title.Position = UDim2.new(0, 10, 0, 0)
+Title.BackgroundTransparency = 1
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Speed Hub X"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 18
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = TopBar
+CloseButton.Size = UDim2.new(0, 24, 0, 24)
+CloseButton.Position = UDim2.new(1, -32, 0.5, -12)
+CloseButton.BackgroundTransparency = 1
+CloseButton.Image = "rbxassetid://6031094678"
+CloseButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
+
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Parent = MainFrame
+ContentFrame.Size = UDim2.new(1, -20, 1, -50)
+ContentFrame.Position = UDim2.new(0, 10, 0, 45)
+ContentFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 50)
+ContentFrame.BorderSizePixel = 0
+ContentCorner.Parent = ContentFrame
+ContentCorner.CornerRadius = UDim.new(0, 8)
+
+DiscordIcon.Name = "DiscordIcon"
+DiscordIcon.Parent = ContentFrame
+DiscordIcon.Size = UDim2.new(0, 60, 0, 60)
+DiscordIcon.Position = UDim2.new(0.5, -30, 0.15, 0)
+DiscordIcon.BackgroundTransparency = 1
+DiscordIcon.Image = "rbxassetid://7733658504"
+DiscordIcon.ImageColor3 = Color3.fromRGB(114, 137, 218)
+
+DiscordLabel.Name = "DiscordLabel"
+DiscordLabel.Parent = ContentFrame
+DiscordLabel.Size = UDim2.new(0.9, 0, 0, 50)
+DiscordLabel.Position = UDim2.new(0.05, 0, 0.4, 0)
+DiscordLabel.BackgroundTransparency = 1
+DiscordLabel.Font = Enum.Font.Gotham
+DiscordLabel.Text = "Join Lurnai Discord Server, Please"
+DiscordLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+DiscordLabel.TextSize = 16
+DiscordLabel.TextWrapped = true
+
+ButtonsFrame.Name = "ButtonsFrame"
+ButtonsFrame.Parent = ContentFrame
+ButtonsFrame.Size = UDim2.new(1, 0, 0, 40)
+ButtonsFrame.Position = UDim2.new(0, 0, 0.8, 0)
+ButtonsFrame.BackgroundTransparency = 1
+
+CopyButton.Name = "CopyButton"
+CopyButton.Parent = ButtonsFrame
+CopyButton.Size = UDim2.new(0.45, 0, 1, 0)
+CopyButton.Position = UDim2.new(0.05, 0, 0, 0)
+CopyButton.BackgroundColor3 = Color3.fromRGB(114, 137, 218) -- Discord blue
+CopyButton.BorderSizePixel = 0
+CopyButton.Font = Enum.Font.GothamSemibold
+CopyButton.Text = "Copy Discord Link"
+CopyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CopyButton.TextSize = 14
+CopyButtonCorner.Parent = CopyButton
+CopyButtonCorner.CornerRadius = UDim.new(0, 6)
+
+ExitButton.Name = "ExitButton"
+ExitButton.Parent = ButtonsFrame
+ExitButton.Size = UDim2.new(0.45, 0, 1, 0)
+ExitButton.Position = UDim2.new(0.5, 0, 0, 0)
+ExitButton.BackgroundColor3 = Color3.fromRGB(60, 60, 65)
+ExitButton.BorderSizePixel = 0
+ExitButton.Font = Enum.Font.GothamSemibold
+ExitButton.Text = "Close"
+ExitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExitButton.TextSize = 14
+ExitButton.Visible = false
+ExitButtonCorner.Parent = ExitButton
+ExitButtonCorner.CornerRadius = UDim.new(0, 6)
+
+WaitButton.Name = "WaitButton"
+WaitButton.Parent = ButtonsFrame
+WaitButton.Size = UDim2.new(0.45, 0, 1, 0)
+WaitButton.Position = UDim2.new(0.5, 0, 0, 0)
+WaitButton.BackgroundColor3 = Color3.fromRGB(60, 60, 65)
+WaitButton.BorderSizePixel = 0
+WaitButton.Font = Enum.Font.GothamSemibold
+WaitButton.Text = "Wait (5s)..."
+WaitButton.TextColor3 = Color3.fromRGB(180, 180, 180)
+WaitButton.TextSize = 14
+WaitButtonCorner.Parent = WaitButton
+WaitButtonCorner.CornerRadius = UDim.new(0, 6)
+
+local function createButtonEffect(button)
+    button.MouseEnter:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = button.BackgroundColor3:Lerp(Color3.fromRGB(255, 255, 255), 0.2)}):Play()
+    end)
+    
+    button.MouseLeave:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = button.BackgroundColor3:Lerp(Color3.fromRGB(0, 0, 0), 0.1)}):Play()
+    end)
+    
+    button.MouseButton1Down:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.1), {Size = button.Size - UDim2.new(0, 2, 0, 2)}):Play()
+    end)
+    
+    button.MouseButton1Up:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.1), {Size = button.Size + UDim2.new(0, 2, 0, 2)}):Play()
+    end)
+end
+
+createButtonEffect(CopyButton)
+createButtonEffect(ExitButton)
+
+MainFrame.Position = UDim2.new(0.5, -200, 0, -300)
+TweenService:Create(MainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, -200, 0.5, -125)}):Play()
+
+local countdown = 5
+local function updateWaitButton()
+    WaitButton.Text = "Wait (" .. countdown .. "s)..."
+    countdown = countdown - 1
+    
+    if countdown < 0 then
+        WaitButton.Visible = false
+        ExitButton.Visible = true
+        
+        local highlightTween = TweenService:Create(ExitButton, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, true, 0), 
+            {BackgroundColor3 = Color3.fromRGB(80, 80, 85)}
+        )
+        highlightTween:Play()
+    end
+end
+
+for i = 5, 0, -1 do
+    task.delay(5-i, updateWaitButton)
+end
+
+-- Button functionality
+CopyButton.MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard("https://discord.gg/zCA8WPNnsW")
+        
+        -- Visual feedback
+        local originalText = CopyButton.Text
+        CopyButton.Text = "Copied!"
+        
+        -- Flash effect
+        local flashTween = TweenService:Create(CopyButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), 
+            {BackgroundColor3 = Color3.fromRGB(76, 175, 80)}
+        )
+        flashTween:Play()
+        
+        task.delay(1, function()
+            CopyButton.Text = originalText
+            TweenService:Create(CopyButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(114, 137, 218)}):Play()
+        end)
+    end
+end)
+
+ExitButton.MouseButton1Click:Connect(function()
+    -- Exit animation
+    local exitTween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.In), 
+        {Position = UDim2.new(0.5, -200, 0, -300), Size = UDim2.new(0, 400, 0, 0)}
+    )
+    exitTween:Play()
+    
+    exitTween.Completed:Connect(function()
+        ScreenGui:Destroy()
+    end)
+end)
+
+CloseButton.MouseButton1Click:Connect(function()
+    if ExitButton.Visible then
+        -- Same exit animation as the exit button
+        local exitTween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.In), 
+            {Position = UDim2.new(0.5, -200, 0, -300), Size = UDim2.new(0, 400, 0, 0)}
+        )
+        exitTween:Play()
+        
+        exitTween.Completed:Connect(function()
+            ScreenGui:Destroy()
+        end)
+    end
+end)
+
+-- Load external script
+task.spawn(function()
+    pcall(function()
+        (loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Main/refs/heads/main/Library/Execution.lua"))()
+    end)
+end)
